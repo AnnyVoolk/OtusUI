@@ -13,6 +13,10 @@ public struct ActivityIndicatorView: UIViewRepresentable {
     
     public let style: UIActivityIndicatorView.Style
     
+    public init(style: UIActivityIndicatorView.Style) {
+        self.style = style
+    }
+    
     public func makeUIView(context: UIViewRepresentableContext<ActivityIndicatorView>) -> UIActivityIndicatorView {
         UIActivityIndicatorView(style: style)
     }

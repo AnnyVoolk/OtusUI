@@ -14,7 +14,7 @@ final public class NavControllerViewModel: ObservableObject {
     
     public var navigationType = NavType.push
     
-    @Published var currentScreen: Screen?
+    @Published public var currentScreen: Screen?
     
     private var screenStack = ScreenStack() {
         didSet {

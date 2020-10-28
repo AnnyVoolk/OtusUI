@@ -8,33 +8,38 @@
 
 import SwiftUI
 
-struct Screen: Identifiable, Equatable {
+public struct Screen: Identifiable, Equatable {
     
-    let id: String
-    let nextScreen: AnyView
+    public let id: String
+    public let nextScreen: AnyView
     
-    static func == (lhs: Screen, rhs: Screen) -> Bool {
+    public init(id: String, nextScreen: AnyView) {
+        self.id = id
+        self.nextScreen = nextScreen
+    }
+    
+    public static func == (lhs: Screen, rhs: Screen) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-struct ScreenStack {
+public struct ScreenStack {
     
     private var screens = [Screen]()
     
-    func top() -> Screen? {
+    public func top() -> Screen? {
         screens.last
     }
     
-    mutating func push(_ s: Screen) {
+    public mutating func push(_ s: Screen) {
         screens.append(s)
     }
     
-    mutating func popToPrevious() {
+    public mutating func popToPrevious() {
         _ = screens.popLast()
     }
     
-    mutating func popToRoot() {
+    public mutating func popToRoot() {
         screens.removeAll()
     }
 }
